@@ -1,5 +1,2 @@
-export var sum = function (a, b) {
-    console.log('boop');
-    return a + b;
-};
+export { sveltify } from "./sveltify";
 //# sourceMappingURL=index.js.map
