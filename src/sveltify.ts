@@ -4,7 +4,7 @@ import { SveltifyComponent } from "./SveltifyComponent";
 import { SveltifyComponentOpts } from "./types";
 import { renderAfter } from "./utils";
 
-export const sveltify =(Component: ComponentType<any>, id: string, options: SveltifyComponentOpts): Promise<SveltifyComponent>=> {
+export const sveltify =(Component: ComponentType<any>, id: string, options?: SveltifyComponentOpts): Promise<SveltifyComponent>=> {
      return new Promise<SveltifyComponent>((resolve, reject) => {
         renderAfter(()=> {
         if(!Component) reject(new NonExistentComponentError());
