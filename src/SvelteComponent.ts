@@ -1,16 +1,16 @@
 import { ComponentType } from "svelte";
 import { ComponentNotFoundError, NonExistentElementError, NonExistentIdError } from "./errors";
-import { SveltifyOptions } from "./types";
+import { SCOptions } from "./types";
 
 
-export class Sveltifier {
+export class SvelteComponent {
 
     private Component: ComponentType<any> | null = null;
     private elementId: string = "";
-    private options: SveltifyOptions | null = null;
+    private options: SCOptions | null = null;
 
 
-    constructor(Component: ComponentType<any>, elementId: string, options?: SveltifyOptions) {
+    constructor(Component: ComponentType<any>, elementId: string, options?: SCOptions) {
         this.Component = Component;
         this.validateId(elementId);
         this.elementId = elementId;
