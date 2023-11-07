@@ -1,3 +1,1 @@
-export function hello() {
-  return "hello sveltify";
-}
+export { sveltify } from "./sveltify";

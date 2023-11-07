@@ -19,6 +19,8 @@
   "author": "Anurag Dhamala",
   "license": "MIT",
   "devDependencies": {
+    "svelte": "^4.2.2",
+    "tslib": "^2.6.2",
     "typescript": "^5.2.2"
   }
 }
