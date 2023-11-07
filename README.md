@@ -1,5 +1,5 @@
 
-# svelte-fy
+# sveltease
 
 Seamlessly integrate svelte components with any frontend frameworks and libraries created with **vite**.
 
@@ -9,7 +9,7 @@ If you update local state in your react/vue, then that update will reflect on sv
 
 ```bash
 npm install -g pnpm
-pnpm install svelte-fy
+pnpm install sveltease
 ```
 
 If you do not want to use pnpm that's fine. You can use package manager of your choice: npm, yarn etc.
@@ -103,11 +103,11 @@ SecondProp: {counter}
 In your react component:
 
 1. Import the svelte component that you want to integrate.
-2. Import the svelte-fy package and pass it three arguments: 
+2. Import the sveltease package and pass it three arguments: 
 
     i. **svelte component** (required)
 
-    ii. **id of the element where you want to insert svelte**. (required and must of unique for every sveltefy function call)
+    ii. **id of the element where you want to insert svelte**. (required and must of unique for every sveltease function call)
 
     ii. **options parameter**. If your svelte component needs props you can pass through options.
 
@@ -116,20 +116,20 @@ In your react component:
 ```typescript
 
 import { useEffect, useState } from "react"
-import { SveltefyComponent, sveltefy } from "svelte-fy"
+import { SvelteaseComponent, sveltease } from "sveltease"
 import Test from "./Test.svelte";
 
 export default function Sample() {
     const [count, setCount] = useState(0)
 
-    let sc: SveltefyComponent;
+    let sc: SvelteaseComponent;
 
-    sveltefy(Test, "test-id",{
+    sveltease(Test, "test-id",{
         props: {
             firstProp: "test string",
             counter: count 
         }   
-    }).then((res: SveltefyComponent)=>{
+    }).then((res: SvelteaseComponent)=>{
         sc = res;
     })
         
@@ -164,32 +164,32 @@ _Notice that we are updating the react state, but it will update the svelte comp
 
 <script setup lang="ts">
 import { onUnmounted, onUpdated, ref } from 'vue'
-import { SveltefyComponent, sveltefy} from "svelte-fy"
+import { SvelteaseComponent, sveltease} from "sveltease"
 import Test from "./Test.svelte";
 
 
 defineProps<{ msg: string }>()
 
 const count = ref(0)
-let sc: SveltefyComponent;
+let sc: SvelteaseComponent;
 
-const activateSveltefy=()=> {
-  sveltefy(Test, "vue-svelte-container", {
-  props: {
-    firstProp: "some test data",
-    counter: count.value
-  }
-  }).then(res=> {
-    sc = res
-  })
+const activateSveltease=()=> {
+  sveltease(Test, "vue-svelte-container", {
+    props: {
+      firstProp: "some test data",
+      counter: count.value
+    }
+    }).then(res=> {
+      sc = res
+    })
 }
 
 
-activateSveltefy(); // you can call it inside onMounted too. It's your choice.
+activateSveltease(); // you can call it inside onMounted too. It's your choice.
 
 
 onUpdated(()=> {
-  activateSveltefy();
+  activateSveltease();
 })
 
 onUnmounted(()=> {
@@ -206,13 +206,13 @@ onUnmounted(()=> {
 </template>
 ```
 
-In case of vue, when you update the vue states, ```activateSveltefy()``` won't be called again, unlike react where we just placed the function call inside the component, and it worked. So, we need to re-trigger it on component update i.e. ```onUpdated()```. 
+In case of vue, when you update the vue states, ```activateSveltease()``` won't be called again, unlike react where we just placed the function call inside the component, and it worked. So, we need to re-trigger it on component update i.e. ```onUpdated()```. 
 
 
-**Don't worry, svelte-fy won't create new object and overload the memory. It will just update the props. That is why the id where the svelte element is inserted must be unique for every sveltefy function call.**
+**Don't worry, sveltease won't create new object and overload the memory. It will just update the props. That is why the id where the svelte element is inserted must be unique for every sveltease function call.**
 
 
-## sveltefy function arguments
+## sveltease function arguments
 
 Find more details about the arguments here:
 
@@ -220,7 +220,7 @@ Find more details about the arguments here:
 | :---:   | :---: | :---: |
 | Svelte Component | ComponentType<any>   | **First Argument**.  Component to insert. Just import your svelte component and pass it here.   |
 | HTMLElement id | string   | **Second Argument**. Element of the id inside which the svelte will be injected. **Note**: this id must be unique for every such element.   |
-| options | SveltefyComponentOpts   | **Third Argument** Addtional options to pass. You can only pass props object for this initial release. **props** are the props required for your svelte component.   |
+| options | SvelteaseComponentOpts   | **Third Argument** Addtional options to pass. You can only pass props object for this initial release. **props** are the props required for your svelte component.   |
 
 
 
