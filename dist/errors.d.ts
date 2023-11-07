@@ -1,4 +1,4 @@
-export declare class ComponentNotFoundError extends Error {
+export declare class NonExistentComponentError extends Error {
     constructor();
 }
 export declare class NonExistentElementError extends Error {

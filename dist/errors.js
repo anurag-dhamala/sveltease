@@ -1,12 +1,12 @@
 import { __extends } from "tslib";
-var ComponentNotFoundError = /** @class */ (function (_super) {
-    __extends(ComponentNotFoundError, _super);
-    function ComponentNotFoundError() {
+var NonExistentComponentError = /** @class */ (function (_super) {
+    __extends(NonExistentComponentError, _super);
+    function NonExistentComponentError() {
         return _super.call(this, "Svelte component not provided.") || this;
     }
-    return ComponentNotFoundError;
+    return NonExistentComponentError;
 }(Error));
-export { ComponentNotFoundError };
+export { NonExistentComponentError };
 var NonExistentElementError = /** @class */ (function (_super) {
     __extends(NonExistentElementError, _super);
     function NonExistentElementError() {
