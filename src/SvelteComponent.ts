@@ -1,5 +1,5 @@
 import { ComponentType } from "svelte";
-import { ComponentNotFoundError, NonExistentElementError, NonExistentIdError } from "./errors";
+import { NonExistentComponentError, NonExistentElementError, NonExistentIdError } from "./errors";
 import { SCOptions } from "./types";
 
 
@@ -13,7 +13,6 @@ export class SvelteComponent {
     constructor(Component: ComponentType<any>, elementId: string, options?: SCOptions) {
         this.Component = Component;
         this.validateId(elementId);
-        this.elementId = elementId;
         if(options) {
             this.options = options;
         }
@@ -22,12 +21,20 @@ export class SvelteComponent {
     ignite() {
         const self = this;
         if(!this.Component) {
-            throw new ComponentNotFoundError();
+            throw new NonExistentComponentError();
         }
-        new this.Component({
+        const component = new this.Component({
             target: document.getElementById(self.elementId) as Element,
             props: self.options?.props
         })
+       
+        console.log("the component : ", component)
+        return self;
+    }
+
+    cleanup() {
+        if(!this.Component) throw new NonExistentComponentError();
+        this.Component.$destroy();
     }
 
     private validateId(id: string) {
