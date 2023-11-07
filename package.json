@@ -1,7 +1,7 @@
 {
   "name": "sveltify",
   "version": "0.0.1",
-  "description": "",
+  "description": "Seamlessly integrate svelte with frontend projects created with vite",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -11,12 +11,21 @@
   "engines": {
     "node": ">=10"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anurag-dhamala/sveltify.git"
+  },
+  "homepage": "https://github.com/anurag-dhamala/sveltify#readme",
+  "readme": "https://github.com/anurag-dhamala/sveltify#readme",
+  "bugs": {
+    "url": "https://github.com/anurag-dhamala/sveltify/issues"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc"
   },
-  "keywords": [],
-  "author": "Anurag Dhamala",
+  "keywords": ["vite", "svelte", "react", "vue", "integration"],
+  "author": "Anurag Dhamala <anuragdhamala04@gmail.com> (https://anurag-dhamala.github.io)",
   "license": "MIT",
   "devDependencies": {
     "svelte": "^4.2.2",
