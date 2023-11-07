@@ -1,3 +1,3 @@
-import { SveltefyComponentKvType } from "./types";
+import { SvelteaseComponentKvType } from "./types";
 
-export const SvelteComponentKV: SveltefyComponentKvType= {};
+export const SvelteComponentKV: SvelteaseComponentKvType= {};

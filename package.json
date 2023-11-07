@@ -1,5 +1,5 @@
 {
-  "name": "svelte-fy",
+  "name": "sveltease",
   "version": "0.0.1",
   "description": "Seamlessly integrate svelte with frontend projects created with vite",
   "main": "dist/index.js",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anurag-dhamala/svelte-fy.git"
+    "url": "git+https://github.com/anurag-dhamala/sveltease.git"
   },
-  "homepage": "https://github.com/anurag-dhamala/svelte-fy#readme",
-  "readme": "https://github.com/anurag-dhamala/svelte-fyfy#readme",
+  "homepage": "https://github.com/anurag-dhamala/sveltease#readme",
+  "readme": "https://github.com/anurag-dhamala/sveltease#readme",
   "bugs": {
-    "url": "https://github.com/anurag-dhamala/svelte-fy/issues"
+    "url": "https://github.com/anurag-dhamala/sveltease/issues"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
