@@ -4,7 +4,7 @@ import { SveltifyComponentOpts } from "./types";
 import { SvelteComponentKV } from "./store";
 
 
-export class SvelteComponent {
+export class SveltifyComponent {
 
     private Component: ComponentType<any> | null = null;
     private elementId: string = "";
