@@ -1,4 +1,4 @@
-export class ComponentNotFoundError extends Error {
+export class NonExistentComponentError extends Error {
     constructor() {
         super("Svelte component not provided.");
     }
