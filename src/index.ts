@@ -1,3 +1,3 @@
-export { sveltify } from "./sveltify";
-export {SveltifyComponent} from './SveltifyComponent';
-export type {SveltifyComponentType, SveltifyComponentOpts, SveltifyComponentKvType} from "./types"
+export { sveltefy } from "./sveltefy";
+export { SveltefyComponent } from './SveltefyComponent';
+export type {SveltefyComponentType, SveltefyComponentOpts, SveltefyComponentKvType} from "./types"

@@ -1,17 +1,17 @@
 import { ComponentType } from "svelte";
 import { NonExistentComponentError, NonExistentElementError, NonExistentIdError } from "./errors";
-import { SveltifyComponentOpts } from "./types";
+import { SveltefyComponentOpts } from "./types";
 import { SvelteComponentKV } from "./store";
 
 
-export class SveltifyComponent {
+export class SveltefyComponent {
 
     private Component: ComponentType<any> | null = null;
     private elementId: string = "";
-    private options: SveltifyComponentOpts | null = null;
+    private options: SveltefyComponentOpts | null = null;
 
 
-    constructor(Component: ComponentType<any>, elementId: string, options?: SveltifyComponentOpts) {
+    constructor(Component: ComponentType<any>, elementId: string, options?: SveltefyComponentOpts) {
         this.Component = Component;
         this.validateId(elementId);
         if(options) {

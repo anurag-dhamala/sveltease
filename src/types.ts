@@ -1,9 +1,9 @@
 import { ComponentProps, ComponentType } from "svelte";
 
-export type SveltifyComponentType = ComponentType<any>;
+export type SveltefyComponentType = ComponentType<any>;
 
-export type SveltifyComponentOpts =  {
+export type SveltefyComponentOpts =  {
     props: ComponentProps<any>
 }
 
-export type SveltifyComponentKvType = Record<string, SveltifyComponentType>
+export type SveltefyComponentKvType = Record<string, SveltefyComponentType>
