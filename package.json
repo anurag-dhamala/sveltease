@@ -1,6 +1,6 @@
 {
   "name": "sveltease",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "Seamlessly integrate svelte with frontend projects created with vite",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
