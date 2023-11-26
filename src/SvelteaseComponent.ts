@@ -36,8 +36,13 @@ export class SvelteaseComponent {
     cleanup() {
         if(!this.Component) throw new NonExistentComponentError();
         delete SvelteComponentKV[this.elementId];
+
         //@ts-ignore
-        this.Component.$destroy();
+        // svelte component type doesn't have $destroy method, but it exists.
+        if(this.Component &&  this.Component.$destroy) {
+            //@ts-ignore
+            this.Component.$destroy();
+        }
     }
 
     private checkIfAlreadyExists(id: string) {
