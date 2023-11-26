@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   svelte:
-    specifier: ^4.2.2
-    version: 4.2.2
+    specifier: ^4.2.7
+    version: 4.2.7
   tslib:
     specifier: ^2.6.2
     version: 2.6.2
@@ -140,8 +140,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /svelte@4.2.2:
-    resolution: {integrity: sha512-My2tytF2e2NnHSpn2M7/3VdXT4JdTglYVUuSuK/mXL2XtulPYbeBfl8Dm1QiaKRn0zoULRnL+EtfZHHP0k4H3A==}
+  /svelte@4.2.7:
+    resolution: {integrity: sha512-UExR1KS7raTdycsUrKLtStayu4hpdV3VZQgM0akX8XbXgLBlosdE/Sf3crOgyh9xIjqSYB3UEBuUlIQKRQX2hg==}
     engines: {node: '>=16'}
     dependencies:
       '@ampproject/remapping': 2.2.1
