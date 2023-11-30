@@ -55,12 +55,17 @@ export class SvelteaseComponent {
         if(!self.Component) {
             throw new NonExistentComponentError();
         }
-        const component = new self.Component({
-            target: document.getElementById(self.elementId) as Element,
-            props: self.options?.props
-        })
-        self.Component = component;
-        SvelteComponentKV[self.elementId] = component;
+        try {
+            const component = new self.Component({
+                target: document.getElementById(self.elementId) as Element,
+                props: self.options?.props
+            })
+            self.Component = component;
+            SvelteComponentKV[self.elementId] = component;
+        } catch (e: any) {
+            console.warn("Warning(sveltease): ", e.message, ". You may be using sveltease in server components");
+        }
+        
     }
 
     private update() { 
@@ -74,9 +79,14 @@ export class SvelteaseComponent {
 
     private validateId(id: string) {
         if(!id) throw new NonExistentIdError();
-        const elementRef = document.getElementById(id);
-        if(!elementRef) throw new NonExistentElementError();
-        this.elementId = id;
+        try {
+            const elementRef = document.getElementById(id);
+            if(!elementRef) throw new NonExistentElementError();
+            this.elementId = id;
+        } catch(e: any) {
+            console.warn("Warning(sveltease): ", e.message, "You may be using svelte component in server components");
+        }
+        
     }
 
 }

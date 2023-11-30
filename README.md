@@ -1,7 +1,7 @@
 
 # sveltease
 
-Seamlessly integrate svelte components with any frontend frameworks and libraries created with **vite**.
+Seamlessly integrate svelte components with any frontend frameworks made with **vue**, **react with vite**, **react with cra** and **next.js** too.
 
 If you update local state in your react/vue, then that update will reflect on svelte component too !!!
 
@@ -18,55 +18,42 @@ If you do not want to use pnpm that's fine. You can use package manager of your 
 
 ## Package configuration
 
-_Note that this readme only assumes that this package is going to used for vite projects. If you are using anything like cra that uses webpack for example, you should look into the webpack docs to integrate the svelte loader and the other usage should be same._
+Yay! Configuration is automatic.
 
-
-This configuration implies for any vite frontend projects.
-
-**Step 1:**
-
-Install svelte vite plugin:
+You can install [sveltease-cli](https://github.com/anurag-dhamala/sveltease-cli). CLI tool made specifically for sveltease. Go check it out!
 
 ```bash
-pnpm i -D @sveltejs/vite-plugin-svelte
+npm i -g sveltease-cli
 ```
 
-**Step 2:**
+**For Vue**
 
-Update the vite.config.ts/(js):
 
-```javascript
-
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import {svelte} from '@sveltejs/vite-plugin-svelte'
-
-// https://vitejs.dev/config/
-export default defineConfig({
-plugins: [react(), svelte()],
-})
-
+```bash
+sveltease-cli init vue
 ```
 
-If you are using vue, there will be ```vue()``` instead of ```react()``` in plugins array. That won't matter.
+**For React with Vite:**
 
-**Step 3: (Not needed for JavaScript only projects)**
-
-_If you are using **TypeScript**, this option is necessary, for JS users this step is not needed._ 
-
-Create the svelte.config.js (in the same level as vite.config.ts) file (for both typescript and javascript users).
-
-```javascript
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
-
-export default {
-  // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
-  // for more information about preprocessors
-  preprocess: vitePreprocess(),
-}
+```bash
+sveltease-cli init react-vite
 ```
 
-That's it for the configuration. It's not much. 
+**For React with CRA:**
+
+```bash
+sveltease-cli init react-cra
+```
+
+
+**For NextJS:**
+
+```bash
+sveltease-cli init next
+```
+
+**And just answers the questions ! It's that simple.**
+
 
 
 ## Usages
@@ -98,7 +85,9 @@ SecondProp: {counter}
 
 ```
 
-**With React**:
+<br/>
+
+**With React and NextJS**:
 
 In your react component:
 
@@ -124,19 +113,18 @@ export default function Sample() {
 
     let sc: SvelteaseComponent;
 
-    sveltease(Test, "test-id",{
-        props: {
-            firstProp: "test string",
-            counter: count 
-        }   
-    }).then((res: SvelteaseComponent)=>{
-        sc = res;
-    })
-        
-
     useEffect(()=> {
+       sveltease(Test, "test-id",{
+          props: {
+             firstProp: "test string",
+             counter: count
+          }
+       }).then((res: SvelteaseComponent)=>{
+          sc = res;
+       })
+       
         return ()=> {
-        sc.cleanup();
+        sc && sc.cleanup();
         }
     },[])
 
@@ -153,10 +141,14 @@ export default function Sample() {
 }
 ```
 
+
+_Note: For NextJS, you can only use this library inside the client component i.e. components with **use client** at the top. And it is **mandatory** to keep sveltease call inside **useEffect** for next. _
+
 _Notice that we are updating the react state, but it will update the svelte component too !!_
 
 **Do not forget to clean up the svelte component on component unmount.**
 
+<br/>
 
 **With Vue**
 
@@ -223,6 +215,8 @@ Find more details about the arguments here:
 | options | SvelteaseComponentOpts   | **Third Argument** Addtional options to pass. You can only pass props object for this initial release. **props** are the props required for your svelte component.   |
 
 
+<br/>
 
+In some cases, you may need to add ts-ignore. This project is still in active development and just in v1.
 
 Raise the issues and improve this project.

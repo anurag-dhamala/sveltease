@@ -1,6 +1,6 @@
 {
   "name": "sveltease",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Seamlessly integrate svelte with frontend projects created with vite",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -33,6 +33,9 @@
   ],
   "author": "Anurag Dhamala <anuragdhamala04@gmail.com> (https://anurag-dhamala.github.io)",
   "license": "MIT",
+  "dependencies": {
+    "tslib": "^2.6.2"
+  },
   "devDependencies": {
     "svelte": "^4.2.7",
     "tslib": "^2.6.2",
