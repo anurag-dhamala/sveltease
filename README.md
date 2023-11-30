@@ -142,7 +142,7 @@ export default function Sample() {
 ```
 
 
-_Note: For NextJS, you can only use this library inside the client component i.e. components with **use client** at the top. And it is **mandatory** to keep sveltease call inside **useEffect** for next. _
+_Note: For NextJS, you can only use this library inside the client component i.e. components with **use client** at the top. And it is **mandatory** to keep sveltease call inside **useEffect** for next._
 
 _Notice that we are updating the react state, but it will update the svelte component too !!_
 
