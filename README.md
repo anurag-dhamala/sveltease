@@ -26,7 +26,7 @@ You can install [sveltease-cli](https://github.com/anurag-dhamala/sveltease-cli)
 npm i -g sveltease-cli
 ```
 
-**For Vue**
+**For Vue:**
 
 
 ```bash
