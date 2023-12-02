@@ -52,6 +52,16 @@ sveltease-cli init react-cra
 sveltease-cli init next
 ```
 
+
+**For Webpack:**
+
+```bash
+sveltease-cli init webpack webpack.config.js
+```
+
+_sveltease-cli init webpack <webpack config file name>_
+
+
 **And just answers the questions ! It's that simple.**
 
 
