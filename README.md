@@ -59,7 +59,7 @@ sveltease-cli init next
 sveltease-cli init webpack webpack.config.js
 ```
 
-_sveltease-cli init webpack <webpack config file name>_
+_sveltease-cli init webpack <webpack_config_file_name>_
 
 
 **And just answers the questions ! It's that simple.**
