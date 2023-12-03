@@ -97,7 +97,62 @@ SecondProp: {counter}
 
 <br/>
 
-**With React and NextJS**:
+**With React**:
+
+In your react component:
+
+1. Import the svelte component that you want to integrate.
+2. Import the sveltease package and pass it three arguments: 
+
+    i. **svelte component** (required)
+
+    ii. **id of the element where you want to insert svelte**. (required and must of unique for every sveltease function call)
+
+    ii. **options parameter**. If your svelte component needs props you can pass through options.
+
+3. Look at the sample implementation below and use it according to your need.
+
+```typescript
+
+import { useEffect, useState } from "react"
+import { SvelteaseComponent, sveltease } from "sveltease"
+import Test from "./Test.svelte";
+
+export default function Sample() {
+    const [count, setCount] = useState(0)
+
+    let sc: SvelteaseComponent;
+    
+    sveltease(Test, "test-id",{
+      props: {
+         firstProp: "test string",
+         counter: count
+      }
+    }).then((res: SvelteaseComponent)=>{
+      sc = res;
+    })
+
+   useEffect(()=> {
+    return ()=> {
+        sc && sc.cleanup();
+        }
+    },[])
+
+    const updateReactState=()=> {
+        setCount(prevState => prevState + 1)
+    }
+
+    return (
+        <>
+        <div id="test-id"></div>
+        <button onClick={updateReactState}>Update</button>
+      </>
+    )
+}
+```
+
+
+**With NextJS**:
 
 In your react component:
 
@@ -150,6 +205,7 @@ export default function Sample() {
     )
 }
 ```
+
 
 
 _Note: For NextJS, you can only use this library inside the client component i.e. components with **use client** at the top. And it is **mandatory** to keep sveltease call inside **useEffect** for next._
