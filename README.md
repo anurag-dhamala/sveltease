@@ -1,7 +1,7 @@
 
 # sveltease
 
-Seamlessly integrate svelte components with any frontend frameworks made with **vue**, **react with vite**, **react with cra** and **next.js** too.
+Seamlessly integrate svelte components with any frontend frameworks made with **vue**, **react with vite**, **react with cra**, **webpack** and **next.js** too.
 
 If you update local state in your react/vue, then that update will reflect on svelte component too !!!
 
